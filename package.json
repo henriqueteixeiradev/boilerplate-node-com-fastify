@@ -2,14 +2,13 @@
   "name": "nodeboilerplate",
   "version": "1.0.0",
   "main": "server.ts",
-  "type": "module",
   "scripts": {
     "start": "tsx src/server.ts",
     "dev": "tsx watch src/server.ts",
     "build": "tsup src",
     "husky:prepare": "husky install",
     "lint": "eslint . --fix",
-    "test": "jest",
+    "test": "vitest",
     "test:lint": "eslint src/**/*.ts --fix"
   },
   "husky": {
@@ -21,7 +20,7 @@
     "*.{js,jsx,ts,tsx}": [
       "pnpm eslint --fix",
       "pnpm prettier --write \"src/**/*.{ts,tsx}\"",
-      "pnpm test:lint --passWithNoTests"
+      "pnpm test:lint"
     ]
   },
   "keywords": [],
@@ -45,7 +44,8 @@
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
-    "vitest": "^3.0.9"
+    "vitest": "^3.0.9",
+    "wait-port": "^1.1.0"
   },
   "dependencies": {
     "fastify": "^5.2.1"
