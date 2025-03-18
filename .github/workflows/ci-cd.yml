@@ -16,23 +16,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
-          cache: "pnpm"
-
-      - name: Enable pnpm
-        run: corepack enable
+          node-version: "22"
+          cache: "npm"
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Lint & fix
-        run: pnpm eslint . --fix
+        run: npm run lint -- --fix
 
       - name: Prettier check
-        run: pnpm prettier --check .
+        run: npm run prettier -- --check .
 
       - name: Run tests
-        run: pnpm test
+        run: npm test
 
       - name: Build
-        run: pnpm build
+        run: npm run build
