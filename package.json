@@ -4,8 +4,8 @@
   "main": "server.ts",
   "scripts": {
     "start": "tsx src/server.ts",
+    "dev": "tsx watch src/server.ts",
     "build": "tsup src",
-    "start:dev": "tsx watch src/server.ts",
     "husky:prepare": "husky install",
     "test": "vitest",
     "test:lint": "vitest run"
@@ -34,7 +34,9 @@
     "@typescript-eslint/parser": "^8.26.1",
     "eslint": "^9.22.0",
     "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.3",
     "express": "^4.21.2",
+    "globals": "^16.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
@@ -42,5 +44,8 @@
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
     "vitest": "^3.0.9"
+  },
+  "dependencies": {
+    "nodeboilerplate": "link:"
   }
 }
