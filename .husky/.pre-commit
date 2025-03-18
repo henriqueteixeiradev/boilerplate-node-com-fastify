@@ -1,1 +1,1 @@
-./test.sh
+npx lint-staged
