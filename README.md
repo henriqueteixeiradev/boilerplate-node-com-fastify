@@ -1,70 +1,120 @@
 Node Boilerplate
-Overview
-This is a simple Node.js boilerplate project with TypeScript ( tsx + tsup ), Express, ESLint, Prettier, Husky + Lint-staged, and Vitest
+Uma estrutura inicial (boilerplate) para projetos Node.js utilizando TypeScript, com suporte a Fastify, ESLint, Prettier, Husky, lint-staged, tsup, tsx e Vitest.
 
-Table of Contents
-Node Boilerplate
-Overview
-Table of Contents
-Getting Started
-Scripts
-Linting and Formatting
-Testing
-Dependencies
-About TSX, TSUP, and esbuild
-Husky and Hooks Sequence
-License
-Getting Started
-Clone this repository: git clone https://github.com/Yan-pi/NodeBoilerplate.git
-Navigate to the project directory: cd nodeboilerplate
-Install dependencies: yarn install
-Start the server: yarn start
-Scripts
-start: Start the server using tsx src/server.ts.
-build: Build the project using tsup src.
-start:dev: Start the server in development mode using tsx watch src/server.ts.
-husky:prepare: Install Husky hooks.
-test: Run tests using Vitest.
-test:lint: Run linting tests using Vitest.
-Linting and Formatting
-Linting and formatting are enforced using ESLint and Prettier. Husky is set up to run lint-staged before each commit.
+Sumário
+Visão Geral
+Conteúdo
+Começando
+Scripts do Projeto
+Linting e Formatação
+Testes
+Dependências
+Sobre as Ferramentas
+Hooks do Husky
+Licença
+Visão Geral
+Este projeto é um boilerplate simples para iniciar aplicações Node.js com TypeScript. Ele utiliza as seguintes ferramentas e frameworks:
 
-Lint-staged configuration:
+Fastify para o desenvolvimento do servidor.
+ESLint e Prettier para garantir qualidade e consistência no código.
+Husky e lint-staged para executar scripts antes dos commits.
+tsx para executar código TypeScript sem compilação prévia.
+tsup para gerar bundles de produção.
+Vitest para a execução dos testes.
+Conteúdo
+Visão Geral
+Conteúdo
+Começando
+Scripts do Projeto
+Linting e Formatação
+Testes
+Dependências
+Sobre as Ferramentas
+Hooks do Husky
+Licença
+Começando
+Siga os passos abaixo para iniciar o projeto:
 
-"_.{js,jsx,ts,tsx}": [
-"yarn eslint --fix",
-"yarn prettier --write \"src/\*\*/_.{ts,tsx}\"",
-"yarn test:lint --passWithNoTests"
-]
-Testing
-Testing is done using Vitest. Run tests with yarn test.
+Clone o repositório:
 
-Dependencies
-@types/express: TypeScript definitions for Express.
-@types/node: TypeScript definitions for Node.js.
-@typescript-eslint/eslint-plugin: ESLint plugin for TypeScript.
-@typescript-eslint/parser: TypeScript parser for ESLint.
-eslint: ESLint for linting.
-eslint-config-prettier: ESLint config for Prettier.
-express: Web framework for Node.js.
-husky: Git hooks made easy.
-lint-staged: Run linters on pre-committed files.
-prettier: Opinionated code formatter.
-tsup: Zero-config TypeScript bundler.
-tsx: CLI command for seamlessly running TypeScript & ESM in both CommonJS & module package types.
-typescript: TypeScript language support.
-vitest: Modern and minimalist JavaScript test framework.
-About TSX, TSUP, and esbuild
-TSX CLI (tsx): TSX is a CLI command for seamlessly running TypeScript & ESM in both CommonJS & module package types. It provides a hassle-free way to execute TypeScript code without dealing with extensive configuration.
+bash
+Copiar
+git clone https://github.com/Yan-pi/NodeBoilerplate.git
+Acesse o diretório do projeto:
 
-TSUP: TSUP is a zero-config TypeScript bundler. It simplifies the process of bundling TypeScript files for the browser. It provides a fast and minimalistic approach to create bundles for deployment.
+bash
+Copiar
+cd nodeboilerplate
+Instale as dependências utilizando o pnpm:
 
-esbuild: esbuild is a fast JavaScript bundler and minifier. TSUP uses esbuild under the hood for efficient bundling of TypeScript code.
+bash
+Copiar
+pnpm install
+Inicie o servidor:
 
-Husky and Hooks Sequence
-Husky is configured with a pre-commit hook that runs lint-staged before each commit. The sequence of hooks is as follows:
+bash
+Copiar
+pnpm start
+Scripts do Projeto
+No arquivo package.json, os scripts estão configurados da seguinte forma:
 
-husky:prepare: Install Husky hooks.
-lint-staged: Run lint-staged, which performs linting and formatting on pre-committed files.
-License
-This project is licensed under the MIT License - see the LICENSE file for details
+start: Inicia o servidor executando o arquivo src/server.ts com o tsx.
+dev: Inicia o servidor em modo de desenvolvimento com monitoramento de alterações.
+build: Gera o bundle do projeto utilizando o tsup.
+husky:prepare: Instala os hooks do Husky.
+lint: Executa o ESLint em todos os arquivos do projeto, aplicando correções automáticas.
+test: Executa os testes utilizando o Vitest.
+test:lint: Executa o ESLint com correções especificamente na pasta src.
+Linting e Formatação
+O projeto utiliza ESLint e Prettier para manter o código limpo e padronizado.
+O Husky está configurado para rodar o lint-staged antes de cada commit.
+A configuração do lint-staged no package.json é a seguinte:
+
+json
+Copiar
+"lint-staged": {
+  "*.{js,jsx,ts,tsx}": [
+    "pnpm eslint --fix",
+    "pnpm prettier --write \"src/**/*.{ts,tsx}\"",
+    "pnpm test:lint"
+  ]
+}
+Observação: Certifique-se de que as aspas estejam devidamente escapadas ou adaptadas conforme o seu ambiente, para evitar problemas na execução dos comandos.
+
+Testes
+Os testes são realizados utilizando o Vitest.
+Para executar os testes, utilize o comando:
+
+bash
+Copiar
+pnpm test
+Dependências
+Dependências de Produção
+fastify: Framework web para Node.js.
+Dependências de Desenvolvimento
+@types/node: Definições de TypeScript para Node.js.
+@typescript-eslint/eslint-plugin e @typescript-eslint/parser: Suporte ao ESLint para TypeScript.
+eslint, eslint-config-prettier e eslint-plugin-prettier: Ferramentas de linting.
+globals: Variáveis globais definidas para o ambiente.
+husky: Gerenciamento de hooks para Git.
+lint-staged: Executa linters em arquivos que estão prestes a ser commitados.
+prettier: Formatação de código.
+tsup: Bundler para TypeScript.
+tsx: Executa TypeScript e ESM sem a necessidade de compilação.
+typescript: Suporte à linguagem TypeScript.
+vitest: Framework de testes.
+wait-port: Utilitário para aguardar portas disponíveis.
+Sobre as Ferramentas
+TSX: Permite a execução de arquivos TypeScript sem necessidade de compilação prévia, facilitando o desenvolvimento.
+TSUP: Bundler de TypeScript sem necessidade de configuração extensa, utilizando o esbuild internamente para otimização.
+esbuild: Bundler e minificador JavaScript extremamente rápido, utilizado pelo tsup.
+Vitest: Framework de testes moderno, minimalista e com uma sintaxe semelhante ao Jest.
+Hooks do Husky
+O Husky está configurado para executar um hook pré-commit que roda o lint-staged.
+A sequência é a seguinte:
+
+husky:prepare: Instala os hooks do Husky.
+lint-staged: Executa os comandos de linting e formatação nos arquivos modificados.
+Licença
+Este projeto está licenciado sob a licença ISC. Consulte o arquivo LICENSE para mais detalhes.
+
