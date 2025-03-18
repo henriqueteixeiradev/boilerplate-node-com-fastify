@@ -1,22 +1,46 @@
 {
-  "name": "finance-app",
+  "name": "nodeboilerplate",
   "version": "1.0.0",
-  "type": "module",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "start": "tsx src/server.ts",
+    "build": "tsup src",
+    "start:dev": "tsx watch src/server.ts",
+    "husky:prepare": "husky install",
+    "test": "vitest",
+    "test:lint": "vitest run"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "pnpm eslint --fix",
+      "pnpm prettier --write \"src/**/*.{ts,tsx}\"",
+      "pnpm test:lint --passWithNoTests"
+    ]
   },
   "keywords": [],
   "author": "henriqueteixeiradev",
   "license": "ISC",
-  "description": "",
+  "description": "boilerplate para iniciar um projeto node",
   "packageManager": "pnpm@9.15.3+sha512.1f79bc245a66eb0b07c5d4d83131240774642caaa86ef7d0434ab47c0d16f66b04e21e0c086eb61e62c77efc4d7f7ec071afad3796af64892fae66509173893a",
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
     "eslint": "^9.22.0",
-    "globals": "^16.0.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^15.5.0"
+    "eslint-config-prettier": "^10.1.1",
+    "express": "^4.21.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9"
   }
 }
