@@ -8,8 +8,9 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsup src",
     "husky:prepare": "husky install",
-    "test": "vitest",
-    "test:lint": "vitest run"
+    "lint": "eslint . --fix",
+    "test": "jest",
+    "test:lint": "eslint src/**/*.ts --fix"
   },
   "husky": {
     "hooks": {
