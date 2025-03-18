@@ -1,5 +1,22 @@
 {
-  "semi": false,
+  "semi": true,
+  "trailingComma": "all",
   "singleQuote": false,
-  "tabWidth": 2
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "proseWrap": "preserve",
+  "quoteProps": "as-needed",
+  "embeddedLanguageFormatting": "auto",
+  "htmlWhitespaceSensitivity": "css",
+  "max-len": {
+    "code": 100,
+    "ignoreComments": true,
+    "ignoreStrings": true,
+    "ignoreTemplateLiterals": true,
+    "ignoreRegExpLiterals": true
+  }
 }
