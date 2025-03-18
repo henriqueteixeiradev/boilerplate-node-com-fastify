@@ -13,16 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Setup Node.js + pnpm cache
         uses: actions/setup-node@v3
         with:
           node-version: "22.x"
           cache: "pnpm"
 
-      - name: Enable pnpm
-        run: corepack enable
-
-      - run: corepack prepare pnpm@latest --activate
+      - name: Enable pnpm via Corepack
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
 
       - name: Install dependencies
         run: pnpm install
