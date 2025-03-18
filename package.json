@@ -2,6 +2,7 @@
   "name": "nodeboilerplate",
   "version": "1.0.0",
   "main": "server.ts",
+  "type": "module",
   "scripts": {
     "start": "tsx src/server.ts",
     "dev": "tsx watch src/server.ts",
